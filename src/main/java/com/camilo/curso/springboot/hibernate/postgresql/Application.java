@@ -32,7 +32,6 @@ public class Application implements CommandLineRunner {
 		findOne();
 		System.out.println("\n=======================================================\n");
 		findOneCustom();
-		create();
 		update();
 		delete();
 		deleteTwo();
@@ -44,8 +43,9 @@ public class Application implements CommandLineRunner {
 		personalizeQueryBetween();
 		personalizeQueryCountMinMax();
 		showAllAgregationFunction();
-		subquery();*/
-		whereIn();
+		subquery();
+		whereIn();*/
+		update();
 	}
 	
 	@Transactional(readOnly = true)

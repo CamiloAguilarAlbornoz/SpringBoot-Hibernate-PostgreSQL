@@ -1,6 +1,7 @@
 package com.camilo.curso.springboot.hibernate.postgresql.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +20,9 @@ public class Person {
 	
 	@Column(name = "programming_language")
 	private String programmingLanguage;
+	
+	@Embedded
+	private Audit audit = new Audit();
 	
 	public Person() {}
 
@@ -71,6 +75,8 @@ public class Person {
 		return "{\nid : " + id + 
 				"\nname : " + name + 
 				"\nlastName : " + lastName + 
-				"\nprogrammingLanguage : " + programmingLanguage + "\n},\n";
+				"\nprogrammingLanguage : " + programmingLanguage +
+				"\ncreateAt" + audit.getCreateAt() +
+				"\nupdatedAt" + audit.getUpdateAt() + "\n},\n";
 	}
 }
